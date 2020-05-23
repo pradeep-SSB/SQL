@@ -1,0 +1,40 @@
+Aggregate Functions- perform some calculation on the data in a database.
+
+SELECT AVG(budget)
+FROM films;
+SELECT SUM(budget)
+FROM films;
+SELECT MAX(gross)
+FROM films
+WHERE  release_year BETWEEN 2000 AND 2012;
+MIN, SUM..
+
+2. Arithmetic- In addition to using aggregate functions, you can perform basic arithmetic with symbols like +, -, *, and /.
+SELECT (4 / 3);  --> 1 ( SQL assumes that if you divide an integer by an integer(matters divident), you want to get an integer back. So be careful when dividing! )
+SELECT (4.0 / 3.0) ;--> 1.333
+SELECT title, gross - budget AS net_profit
+FROM films;
+
+3. Aliasing- Aliases are helpful for making results more readable! ( Aliases are helpful for making results more readable! )
+SELECT MAX(budget), MAX(duration)
+FROM films;
+SELECT MAX(budget) AS max_budget,
+       MAX(duration) AS max_duration
+FROM films;
+SELECT ( COUNT(deathdate) * 100.0/COUNT(*) ) AS percentage_dead
+FROM people;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
