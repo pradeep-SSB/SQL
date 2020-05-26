@@ -1,0 +1,72 @@
+Sql [First + Second]
+
+1.Sql: Not case sensitive, but good practice to use keywords as BLOCKS--   
+SELECT *
+FROM films;
+
+select country
+from films;
+
+2. DISTINCT
+SELECT DISTINCT country
+FROM films;
+
+3. COUNT
+SELECT COUNT(*)
+FROM people;
+
+SELECT COUNT(birthdate)
+FROM people;
+
+SELECT COUNT(DISTINCT ( birthdate) )
+FROM people;
+
+WHERE
+4. Notice that the WHERE clause always comes after the FROM statement!
+5. Note that in this course we will use <> and not != for the not equal operator, as per the SQL standard.\
+6.The WHERE clause can also be used to filter text results, such as names or countries
+7. Important: in PostgreSQL (the version of SQL we're using), you must use single quotes with
+SELECT *
+FROM films
+WHERE language = 'French';
+
+8.WHERE AND- Often, you'll want to select data based on multiple conditions. You can build up your WHERE queries by combining multiple conditions with the AND keyword.
+9. WHERE AND OR- If you want to select rows based on multiple conditions where some but not all of the conditions need to be met
+10. When combining AND and OR, be sure to enclose the individual clauses in parentheses, like so: Otherwise, due to SQL's precedence rules, you may not get the results you're expecting!
+SELECT title
+FROM films
+WHERE (release_year = 1994 OR release_year = 1995)
+AND (certification = 'PG' OR certification = 'R');
+
+11. BETWEEN- you can use the following query to get titles of all films released in and between 1994 and 2000(Inclusive):
+SELECT name
+FROM kids
+WHERE age BETWEEN 2 AND 12
+AND nationality = 'USA';
+
+12. WHERE IN-  works as OR operator
+SELECT title, certification
+FROM films
+WHERE 	certification IN ('NC-17' , 'R');
+
+13. NULL, IS NULL, IS NOT NULL 
+SELECT COUNT(*)
+FROM films
+WHERE language IS NULL;
+
+14. LIKE and NOT LIKE-  In the real world, often you'll want to search for a pattern rather than a specific text string.
+SELECT name
+FROM people
+WHERE name LIKE 'B%';
+SELECT name
+FROM people
+WHERE name LIKE '_r%';
+
+SELECT name
+FROM people
+WHERE name NOT LIKE 'A%'
+
+
+
+
+
